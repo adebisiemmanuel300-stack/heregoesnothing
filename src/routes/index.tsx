@@ -168,17 +168,18 @@ function Proposal() {
             <div className="reaction-frame !h-[160px] !mt-5"><img src={dance.url} alt="A happy peach cat dancing in celebration" width={220} height={205} /></div>
             <h1 className="proposal-title !text-[48px] max-sm:!text-[38px]">YAYYY, Enny!<br /><span className="italic text-primary">Officially official</span> 🥰</h1>
             <p className="text-sm text-muted-foreground mt-3 italic">“I'll nap under moonlight skies with you... ✨”</p>
+            <p className="text-sm text-muted-foreground mt-2">Emmy &amp; Enny. Turns out we were matching before we even tried. 💞</p>
             <motion.div className="keepsake" initial={{ opacity: 0, y: 30, rotate: -5 }} animate={{ opacity: 1, y: 0, rotate: -2 }} transition={{ delay: .4, duration: .7 }}>
               <Heart className="mx-auto text-primary mb-3" size={22} strokeWidth={1.4} />
               <p className="eyebrow !text-[8px]">The beginning of our little forever</p>
-              <h2 className="keepsake-heading mt-2">Enny & me, officially.</h2>
+              <h2 className="keepsake-heading mt-2">Enny &amp; Emmy, officially.</h2>
               <p className="text-xs text-muted-foreground mt-2">{date}</p>
-              <div className="border-t border-dashed mt-5 pt-4 flex justify-between text-[10px] text-muted-foreground"><span>One question. One perfect yes.</span><span>♡ us, always</span></div>
+              <div className="border-t border-dashed mt-5 pt-4 flex justify-between text-[10px] text-muted-foreground"><span>One question. One perfect yes.</span><span>♡ Emmy + Enny</span></div>
             </motion.div>
           </motion.section>
         )}
       </AnimatePresence>
-      <footer className="bottom-note"><Mail size={12} strokeWidth={1.2} /> {stage === 'yes' ? 'A little moment. A lovely beginning.' : 'Sealed with a little courage & a whole lot of love.'} <Heart size={10} strokeWidth={1.2} /></footer>
+      <footer className="bottom-note"><Mail size={12} strokeWidth={1.2} /> {stage === 'yes' ? 'A little moment. A lovely beginning. — Emmy & Enny' : 'Sealed with a little courage & a whole lot of love. — Emmanuel'} <Heart size={10} strokeWidth={1.2} /></footer>
     </main>
   );
 }
