@@ -12,10 +12,10 @@ import dance from '@/assets/dance.gif.asset.json';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'A Little Love Letter — Just for You' },
-    { name: 'description', content: 'One little envelope. One big question. A special love letter, just for you.' },
-    { property: 'og:title', content: 'A Little Love Letter — Just for You' },
-    { property: 'og:description', content: 'One little envelope. One big question. A special love letter, just for you.' },
+    { title: 'A Little Love Letter — Just for Enny' },
+    { name: 'description', content: 'One little envelope for Enny. One big question. A special love letter, just for her.' },
+    { property: 'og:title', content: 'A Little Love Letter — Just for Enny' },
+    { property: 'og:description', content: 'One little envelope for Enny. One big question. A special love letter, just for her.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ] }),
@@ -128,31 +128,31 @@ function Proposal() {
         {(stage === 'intro' || isOpening) && (
           <motion.section key="intro" className="center-stage" exit={{ opacity: 0, scale: reduced ? 1 : 1.1, filter: 'blur(8px)' }} transition={{ duration: .5 }}>
             <motion.div animate={{ opacity: isOpening ? 0 : 1 }} transition={{ duration: .4 }}>
-              <div className="eyebrow">For my favorite person</div>
-              <h1 className="intro-title">Something just for <span className="italic text-primary">you.</span></h1>
+              <div className="eyebrow">For Enny, my favorite person</div>
+              <h1 className="intro-title">Something just for <span className="italic text-primary">Enny.</span></h1>
               <p className="intro-subtitle">A little note. A lot of butterflies.<br />And something I've been meaning to ask.</p>
             </motion.div>
             <motion.div className="envelope-wrap" animate={isOpening ? { scale: [1, 1.05, 3.5], y: [0, 0, 100], rotate: 0 } : { y: reduced ? 0 : [0, -7, 0], rotate: [-2, -1, -2] }} transition={isOpening ? { duration: 1.6, times: [0, .65, 1] } : { duration: 5, repeat: Infinity, ease: 'easeInOut' }}>
               <span className="envelope-doodle -left-8 -top-5 rotate-[-18deg]"><Heart size={25} strokeWidth={1} /></span>
               <span className="envelope-doodle -right-10 top-20 rotate-[18deg]"><Heart size={18} strokeWidth={1} /></span>
-              <Button className="envelope-button" aria-label="A special delivery for you 💌 — Tap to open" onClick={openLetter} disabled={isOpening}>
+              <Button className="envelope-button" aria-label="A special delivery for Enny 💌 — Tap to open" onClick={openLetter} disabled={isOpening}>
                 <span className="envelope-body" />
                 <motion.span className="envelope-letter" animate={isOpening ? { y: -100 } : { y: 0 }} transition={{ delay: .65, duration: .6 }}><Heart size={28} strokeWidth={1} /></motion.span>
                 <span className="envelope-front" /><span className="envelope-left" /><span className="envelope-bottom" />
                 <motion.span className="envelope-flap" animate={{ rotateX: isOpening ? 180 : 0, zIndex: isOpening ? 1 : 5 }} transition={{ duration: .7, delay: .25 }} />
                 <motion.span className="wax-seal" animate={isOpening ? { scale: [1, 1.2, 0], rotate: 20, opacity: 0 } : { scale: 1 }} transition={{ duration: .4 }}><Heart size={25} fill="currentColor" strokeWidth={1} /></motion.span>
-                <motion.span className="envelope-address" animate={{ opacity: isOpening ? 0 : 1 }}>to you, with love</motion.span>
+                <motion.span className="envelope-address" animate={{ opacity: isOpening ? 0 : 1 }}>to Enny, with love</motion.span>
               </Button>
             </motion.div>
-            <motion.div animate={{ opacity: isOpening ? 0 : 1 }}><p className="delivery-label">A special delivery for you 💌</p><p className="tap-label">Tap to open <ArrowUpRight size={12} /></p></motion.div>
+            <motion.div animate={{ opacity: isOpening ? 0 : 1 }}><p className="delivery-label">A special delivery for Enny 💌</p><p className="tap-label">Tap to open <ArrowUpRight size={12} /></p></motion.div>
           </motion.section>
         )}
         {stage === 'question' && (
           <motion.section key="question" className="center-stage" initial={{ opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, scale: .95 }} transition={{ duration: .65 }}>
             <span className="eyebrow">Okay, here goes nothing…</span>
             <div className="reaction-frame"><AnimatePresence mode="wait"><motion.img key={reaction.url} src={reaction.url} alt={attempts === 0 ? 'Two cute cats sharing kisses' : attempts < 4 ? 'A cat with pleading puppy eyes' : 'A very dramatic crying cat'} width={220} height={205} initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} /></AnimatePresence></div>
-            <h1 className="proposal-title">Will you be my<br /><span className="italic text-primary">girlfriend?</span> <span className="text-[38px]">🥺</span></h1>
-            <p className="text-sm text-muted-foreground mt-2">You + me. That's my favorite possibility.</p>
+            <h1 className="proposal-title">Enny, will you be<br /><span className="italic text-primary">my girlfriend?</span> <span className="text-[38px]">🥺</span></h1>
+            <p className="text-sm text-muted-foreground mt-2">Enny + me. That's my favorite possibility.</p>
             <div className="answer-row">
               <motion.div animate={{ scale: Math.min(1 + attempts * .11, 1.65) }} transition={{ type: 'spring', stiffness: 260, damping: 16 }}><Button ref={yesButton} className="yes-answer" onClick={() => void sayYes()}>Yes! 💕</Button></motion.div>
               <motion.div className={noPosition ? 'fixed left-0 top-0 z-20' : ''} animate={{ x: noPosition?.x ?? 0, y: noPosition?.y ?? 0, scale: Math.max(.65, 1 - attempts * .04) }} transition={{ duration: reduced ? 0 : .18 }}>
@@ -166,12 +166,12 @@ function Proposal() {
           <motion.section key="celebration" className="center-stage" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }}>
             <span className="eyebrow flex items-center gap-2"><Check size={12} /> It's a yes!</span>
             <div className="reaction-frame !h-[160px] !mt-5"><img src={dance.url} alt="A happy peach cat dancing in celebration" width={220} height={205} /></div>
-            <h1 className="proposal-title !text-[48px] max-sm:!text-[38px]">YAYYY!<br /><span className="italic text-primary">Officially official</span> 🥰</h1>
+            <h1 className="proposal-title !text-[48px] max-sm:!text-[38px]">YAYYY, Enny!<br /><span className="italic text-primary">Officially official</span> 🥰</h1>
             <p className="text-sm text-muted-foreground mt-3 italic">“I'll nap under moonlight skies with you... ✨”</p>
             <motion.div className="keepsake" initial={{ opacity: 0, y: 30, rotate: -5 }} animate={{ opacity: 1, y: 0, rotate: -2 }} transition={{ delay: .4, duration: .7 }}>
               <Heart className="mx-auto text-primary mb-3" size={22} strokeWidth={1.4} />
               <p className="eyebrow !text-[8px]">The beginning of our little forever</p>
-              <h2 className="keepsake-heading mt-2">You & me, officially.</h2>
+              <h2 className="keepsake-heading mt-2">Enny & me, officially.</h2>
               <p className="text-xs text-muted-foreground mt-2">{date}</p>
               <div className="border-t border-dashed mt-5 pt-4 flex justify-between text-[10px] text-muted-foreground"><span>One question. One perfect yes.</span><span>♡ us, always</span></div>
             </motion.div>
