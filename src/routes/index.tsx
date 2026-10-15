@@ -165,7 +165,7 @@ function Proposal() {
         {stage === 'yes' && (
           <motion.section key="celebration" className="center-stage" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6 }}>
             <span className="eyebrow flex items-center gap-2"><Check size={12} /> It's a yes!</span>
-            <div className="reaction-frame !h-[160px] !mt-5"><img src={dance.url} alt="A happy peach cat dancing in celebration" width={220} height={205} /></div>
+            <div className="reaction-frame !h-[160px] !mt-5"><img src={dance.url} alt="A happy peach cat dancing in celebration" width={220} height={205} style={{ maxHeight: 148 }} /></div>
             <h1 className="proposal-title !text-[48px] max-sm:!text-[38px]">YAYYY, Enny!<br /><span className="italic text-primary">Officially official</span> 🥰</h1>
             <p className="text-sm text-muted-foreground mt-3 italic">“I'll nap under moonlight skies with you... ✨”</p>
             <p className="text-sm text-muted-foreground mt-2">Emmy &amp; Enny. Turns out we were matching before we even tried. 💞</p>
