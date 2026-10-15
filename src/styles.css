@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-sans: "DM Sans", sans-serif;
-  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", "Noto Color Emoji", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Noto Color Emoji", serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -80,7 +80,7 @@
 .envelope-front { position: absolute; inset: 0; background: var(--envelope); clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%); border-radius: 5px; z-index: 3; }
 .envelope-left { position: absolute; inset: 0; background: var(--envelope-light); clip-path: polygon(0 0, 53% 57%, 0 100%); z-index: 4; }
 .envelope-bottom { position: absolute; inset: 0; background: var(--envelope-light); clip-path: polygon(0 100%, 50% 50%, 100% 100%); z-index: 4; border-radius: 5px; }
-.envelope-flap { position: absolute; inset: 0; background: var(--envelope-light); clip-path: polygon(0 0, 100% 0, 50% 59%); transform-origin: top; z-index: 5; filter: drop-shadow(0 2px 1px var(--envelope-dark)); backface-visibility: visible; }
+.envelope-flap { position: absolute; inset: 0; background: var(--envelope); clip-path: polygon(0 0, 100% 0, 50% 59%); transform-origin: top; z-index: 5; filter: drop-shadow(0 2px 1px var(--envelope-dark)); backface-visibility: visible; }
 .wax-seal { position: absolute; top: 99px; left: 144px; width: 54px; height: 54px; background: var(--seal); box-shadow: var(--shadow-seal); border-radius: 48% 46% 49% 44%; display: flex; align-items: center; justify-content: center; color: var(--primary-foreground); z-index: 7; }
 .envelope-address { position: absolute; bottom: 20px; left: 0; right: 0; z-index: 8; font-family: var(--font-display); font-size: 18px; font-style: italic; color: var(--muted-foreground); }
 .envelope-doodle { position: absolute; color: var(--primary); pointer-events: none; }
