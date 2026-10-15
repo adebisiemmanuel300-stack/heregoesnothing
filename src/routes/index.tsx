@@ -90,9 +90,17 @@ function Proposal() {
     if (reduced) return;
     const { default: confetti } = await import('canvas-confetti');
     const heart = confetti.shapeFromPath({ path: 'M 0 10 C -20 -5 -10 -20 0 -10 C 10 -20 20 -5 0 10 Z' });
-    const primary = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
-    const gold = getComputedStyle(document.documentElement).getPropertyValue('--gold').trim();
-    const options = { particleCount: 95, spread: 85, startVelocity: 48, gravity: 0.7, ticks: 240, scalar: 1.4, shapes: [heart, 'circle'] as Parameters<typeof confetti>[0] extends undefined ? never : any, colors: [primary, gold, '#ffffff'], disableForReducedMotion: true };
+    const canvas = document.createElement('canvas');
+    canvas.width = 1; canvas.height = 1;
+    const context = canvas.getContext('2d');
+    const colors = ['--primary', '--gold', '--primary-foreground'].map(token => {
+      const value = getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+      if (!context) return value;
+      context.clearRect(0, 0, 1, 1); context.fillStyle = value; context.fillRect(0, 0, 1, 1);
+      const pixel = context.getImageData(0, 0, 1, 1).data;
+      return '#' + Array.from(pixel.slice(0, 3)).map(channel => channel.toString(16).padStart(2, '0')).join('');
+    });
+    const options = { particleCount: 95, spread: 85, startVelocity: 48, gravity: 0.7, ticks: 240, scalar: 1.4, shapes: [heart], colors, disableForReducedMotion: true };
     void confetti({ ...options, angle: 60, origin: { x: 0, y: 0.6 } });
     void confetti({ ...options, angle: 120, origin: { x: 1, y: 0.6 } });
   }
