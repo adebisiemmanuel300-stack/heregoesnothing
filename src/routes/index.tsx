@@ -12,10 +12,10 @@ import dance from '@/assets/dance.gif.asset.json';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'A Little Love Letter — Just for Enny' },
-    { name: 'description', content: 'One little envelope for Enny. One big question. A special love letter, just for her.' },
-    { property: 'og:title', content: 'A Little Love Letter — Just for Enny' },
-    { property: 'og:description', content: 'One little envelope for Enny. One big question. A special love letter, just for her.' },
+    { title: 'Just for Enny — a little letter from Emmanuel' },
+    { name: 'description', content: 'One little envelope for Enny, sealed by Emmanuel. One big question — and two names that were always going to match.' },
+    { property: 'og:title', content: 'Just for Enny — a little letter from Emmanuel' },
+    { property: 'og:description', content: 'One little envelope for Enny, sealed by Emmanuel. One big question — and two names that were always going to match.' },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ] }),
@@ -128,7 +128,7 @@ function Proposal() {
         {(stage === 'intro' || isOpening) && (
           <motion.section key="intro" className="center-stage" exit={{ opacity: 0, scale: reduced ? 1 : 1.1, filter: 'blur(8px)' }} transition={{ duration: .5 }}>
             <motion.div animate={{ opacity: isOpening ? 0 : 1 }} transition={{ duration: .4 }}>
-              <div className="eyebrow">For Enny, my favorite person</div>
+              <div className="eyebrow">For Enny, from Emmanuel 💌</div>
               <h1 className="intro-title">Something just for <span className="italic text-primary">Enny.</span></h1>
               <p className="intro-subtitle">A little note. A lot of butterflies.<br />And something I've been meaning to ask.</p>
             </motion.div>
@@ -141,7 +141,7 @@ function Proposal() {
                 <span className="envelope-front" /><span className="envelope-left" /><span className="envelope-bottom" />
                 <motion.span className="envelope-flap" animate={{ rotateX: isOpening ? 180 : 0, zIndex: isOpening ? 1 : 5 }} transition={{ duration: .7, delay: .25 }} />
                 <motion.span className="wax-seal" animate={isOpening ? { scale: [1, 1.2, 0], rotate: 20, opacity: 0 } : { scale: 1 }} transition={{ duration: .4 }}><Heart size={25} fill="currentColor" strokeWidth={1} /></motion.span>
-                <motion.span className="envelope-address" animate={{ opacity: isOpening ? 0 : 1 }}>to Enny, with love</motion.span>
+                <motion.span className="envelope-address" animate={{ opacity: isOpening ? 0 : 1 }}>to Enny ♡ from Emmanuel</motion.span>
               </Button>
             </motion.div>
             <motion.div animate={{ opacity: isOpening ? 0 : 1 }}><p className="delivery-label">A special delivery for Enny 💌</p><p className="tap-label">Tap to open <ArrowUpRight size={12} /></p></motion.div>
@@ -152,7 +152,7 @@ function Proposal() {
             <span className="eyebrow">Okay, here goes nothing…</span>
             <div className="reaction-frame"><AnimatePresence mode="wait"><motion.img key={reaction.url} src={reaction.url} alt={attempts === 0 ? 'Two cute cats sharing kisses' : attempts < 4 ? 'A cat with pleading puppy eyes' : 'A very dramatic crying cat'} width={220} height={205} initial={{ opacity: 0, scale: .85 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} /></AnimatePresence></div>
             <h1 className="proposal-title">Enny, will you be<br /><span className="italic text-primary">my girlfriend?</span> <span className="text-[38px]">🥺</span></h1>
-            <p className="text-sm text-muted-foreground mt-2">Enny + me. That's my favorite possibility.</p>
+            <p className="text-sm text-muted-foreground mt-2">Emmy + Enny — same beginning, same ending. Our names have been matching since day one. 💕</p>
             <div className="answer-row">
               <motion.div animate={{ scale: Math.min(1 + attempts * .11, 1.65) }} transition={{ type: 'spring', stiffness: 260, damping: 16 }}><Button ref={yesButton} className="yes-answer" onClick={() => void sayYes()}>Yes! 💕</Button></motion.div>
               <motion.div className={noPosition ? 'fixed left-0 top-0 z-20' : ''} animate={{ x: noPosition?.x ?? 0, y: noPosition?.y ?? 0, scale: Math.max(.65, 1 - attempts * .04) }} transition={{ duration: reduced ? 0 : .18 }}>
